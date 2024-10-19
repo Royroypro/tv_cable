@@ -1,0 +1,53 @@
+table, th, td{
+	border-collapse: collapse;
+	border: solid 1px silver; 
+}
+th, td{
+	padding: 10px 30px;
+}
+/* -- colores -- */
+table{
+		color: black;
+	}
+table > thead > tr > th:nth-child(1){
+		background-color: #ecf0f1;
+	}
+table > thead > tr > th:not(:nth-child(1)){
+		background-color: #bdc3c7;
+	}
+table > tbody > tr > td:nth-child(1){
+		background-color: #62a1e9;
+	}
+table > tbody > tr > td:not(:nth-child(1)){
+		background-color: #ecf0f1;
+	}
+/* -- truco -- */
+@media (max-width: 590px) {
+	table{
+		width: 90%;
+	}
+	table > thead > tr > th:not(:nth-child(1)){
+		display: none;
+	}
+	table > tbody > tr{
+		display: flex;
+		flex-direction: column;
+	}
+	table > tbody > tr > td::before{
+		content: attr(data-column-name)": ";
+		margin-bottom: 5px;
+		margin-right: 5px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	table > tbody > tr > td{
+		padding: 0px;
+		display: flex;
+		justify-content: space-between;
+		padding: 5px;
+		flex-wrap: wrap;
+	}
+	table > tbody > tr > td:not(:nth-child(1)){
+		border: none;
+	}
+}
